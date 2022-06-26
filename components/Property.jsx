@@ -9,7 +9,8 @@ import defaultImage from '../assets/images/house.jpg'
 
 const Property = ({ property: { coverPhoto, price, rentFrequency, rooms, title, baths, area, agency, isVerified, externalID} }) => (
   <Link href={`/property/${externalID}`} passHref>
-    <Flex felxWrap="wrap" w="420px" p="5" paddingTop="0" justifContent="felx-start" cursor="pointer">
+    <Box>
+      <Flex felxWrap="wrap" w="420px" p="5" paddingTop="0" justifContent="felx-start" cursor="pointer">
        <Box>
         <Image src={coverPhoto ? coverPhoto.url : defaultImage} width={400} height={260} alt="house"/>
        </Box>
@@ -20,15 +21,18 @@ const Property = ({ property: { coverPhoto, price, rentFrequency, rooms, title, 
         </Flex>
         <Box>
             <Avatar size="sm" src={agency?.logo?.url}/>
+          </Box>
         </Box>
-       </Box>
-    </Flex>
-    <Flex alignItems="center" p="1" justifyContent="space-between" w="250px" color="blue.400">
-        {rooms} <FaBed /> | {baths} <FaBath /> | {millify(area)} sqft <BsGridFill />
-    </Flex>
-    <Text fontSize="lg">
-        {title.length > 30 ? title.substring(0,30) + '...' : title}
-    </Text>
+      </Flex>
+      <Flex alignItems="center" p="1" justifyContent="space-between" w="250px" color="blue.400">
+          {rooms} 
+      <FaBed /> | {baths} <FaBath /> | {millify(area)} sqft <BsGridFill />
+      </Flex>
+      <Text fontSize="lg">
+          {title.length > 30 ? title.substring(0,30) + '...' : title}
+      </Text>
+      </Box>
+    
   </Link>
   )
 
