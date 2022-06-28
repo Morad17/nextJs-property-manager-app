@@ -10,12 +10,12 @@ import defaultImage from '../assets/images/house.jpg'
 const Property = ({ property: { coverPhoto, price, rentFrequency, rooms, title, baths, area, agency, isVerified, externalID} }) => (
   <Link href={`/property/${externalID}`} passHref>
     <Box>
-      <Flex felxWrap="wrap" w="420px" p="5" paddingTop="0" justifContent="felx-start" cursor="pointer">
+      <Flex flexWrap="wrap" w="420px" p="5" paddingTop="0" justifyContent="flex-start" cursor="pointer">
        <Box>
         <Image src={coverPhoto ? coverPhoto.url : defaultImage} width={400} height={260} alt="house"/>
        </Box>
        <Box w="full">
-        <Flex paddingTop="2" alignItems="center" justifyContents="space-between">
+        <Flex paddingTop="2" alignItems="center" justifyContent="space-between">
             <Box paddingRight="3" color="green.400">{isVerified && <GoVerified />}</Box>
             <Text fontWeight="bold" fontSize="lg">AED {millify(price)}{rentFrequency && `/${rentFrequency}`}</Text>
         </Flex>
